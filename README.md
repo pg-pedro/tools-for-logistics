@@ -9,6 +9,8 @@ It is a collection of generic tools to create quick insights on customers data.
 
 Current phase is __prototype__, meant to show to logistics engineers how they could streamline their work with such tools.
 
+A working version of the app can be found [here](https://tools-for-logistics.streamlit.app/).
+
 ---
 
 ## Functionalities
