@@ -1,0 +1,1 @@
+from .how_to import how_to_page

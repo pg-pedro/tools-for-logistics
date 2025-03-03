@@ -6,6 +6,7 @@ from streamlit_option_menu import option_menu
 from .welcome import welcome_page
 from .upload import upload_page, data_storage_initialize
 from .preprocess import preprocess_page
+from .how_to import how_to_page
 
 # Apps Imports
 from apps.outbound import orderline_pattern_page
@@ -22,8 +23,8 @@ def page_config():
 
 def main_menu():
     with st.sidebar:
-        main_selection = option_menu(None, ['Home', 'Upload', 'Preprocess', 'Merge', 'Analytics - Outbound',], 
-            icons=['house', 'cloud-upload', 'file-spreadsheet', 'journal-plus', 'box-arrow-up'], 
+        main_selection = option_menu(None, ['Home', 'How To', 'Upload', 'Preprocess', 'Merge', 'Analytics - Outbound',], 
+            icons=['house', 'info-lg', 'cloud-upload', 'file-spreadsheet', 'journal-plus', 'box-arrow-up'], 
             menu_icon="cast", default_index=0, orientation="vertical",
             styles= {
             "nav-link-selected": {"background-color": "#002664"}
@@ -58,6 +59,8 @@ def main():
     main_selection = main_menu()
     if main_selection == 'Home':
         welcome_page()
+    elif main_selection == 'How To':
+        how_to_page()
     elif main_selection == 'Upload':
         upload_page()
     elif main_selection == 'Preprocess':

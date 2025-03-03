@@ -14,6 +14,9 @@ def page_intro():
     with st.expander('More Info'):
         text = """
         Upload a file using this section.
+        
+        Once uploaded, you can process these files into pandas dataframes, which are essential for creating effective dashboards and reports. 
+        The tool provides a user-friendly interface to manage your data uploads and transformations, ensuring your data is ready for analysis.
 
         Limitations:
         - Max file size: 2Gb.

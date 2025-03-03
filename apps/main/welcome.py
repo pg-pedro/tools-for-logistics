@@ -6,14 +6,18 @@ def welcome_page():
 
     ### What is this tool for?
 
-    Web tool that creates logistics outbound reports. 
-    Upload the required data to the tool, select a report you want to have and the tool will create it for you.
+    This web tool is designed to help logistics engineers create outbound reports efficiently. 
 
-    1. Upload data
-    2. Merge and Preprocess dataset(s)
-    2. Select report
-    3. Set parameters and create dashboards
-    4. Download report data
+    It provides a user-friendly interface to upload data, preprocess and merge datasets, and generate various reports and dashboards. 
+    
+    The tool streamlines the process of data analysis, allowing users to focus on insights rather than repetitive tasks.
+
+    #### Key Features:
+    1. **Upload Data**: Supports CSV, XLS, and XLSX file formats up to 2GB.
+    2. **Merge and Preprocess**: Convert data types, drop unnecessary columns, and set datetime indexes.
+    3. **Select Report**: Choose from various report types tailored for logistics analysis.
+    4. **Set Parameters and Create Dashboards**: Customize report parameters and generate interactive dashboards.
+    5. **Download Report Data**: Export the processed data and reports for further analysis or sharing.
 
     ### Goal
 

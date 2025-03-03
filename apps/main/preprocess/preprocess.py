@@ -15,9 +15,16 @@ def page_intro():
     st.markdown('## Data Preprocessing')
     with st.expander('More Info'):
         text = """
-        Prepare your data for analysis by converting data types, dropping unnecessary columns, and setting the Pandas index. 
-        
-        These steps ensure that your data is clean and ready for use in our analytical tools.
+        This tool is designed to help you prepare your data for analysis by providing a user-friendly interface for performing common data preprocessing tasks. With this tool, you can:
+
+        **Key Features**:
+        - **Convert data types**: Easily change the data type of columns in your dataframe, such as converting strings to datetime, integers to floats, and more.
+        - **Drop unnecessary columns**: Remove columns that are not needed for your analysis to keep your data clean and focused.
+        - **Set the Pandas index**: Define a specific column as the index of your dataframe to facilitate time series analysis and other operations.
+        - **Reset the index**: Revert your dataframe to use the default integer index if needed.
+        - **Download the processed dataframe**: Export your cleaned and preprocessed dataframe to a CSV file for further analysis or sharing.
+
+        By using this tool, you can ensure that your data is clean, well-structured, and ready for use in various analytical tools and processes.
         """
         st.markdown(text)
 

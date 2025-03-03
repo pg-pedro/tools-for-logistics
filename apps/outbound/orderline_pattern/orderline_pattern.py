@@ -68,7 +68,15 @@ def page_intro():
     st.markdown('## Orderline Pattern')
     with st.expander('More Info'):
         text = """
-        Brief explanation here.
+        Orderline pattern is designed to help logistics engineers analyze orderline patterns in outbound data. 
+        It provides a user-friendly interface to generate detailed visualizations and insights into orderline distributions, quantities, and cumulative metrics. 
+
+        **Key Features**:
+        1. **Orderline Grouping**: Visualize orderlines grouped by custom ranges.
+        2. **Equally Spaced Orderline Ranges**: Create visualizations based on equally spaced orderline ranges.
+        3. **Orderline Analysis**: Analyze the distribution of orderlines and their impact on total orders and quantities.
+        4. **Interactive Dashboards**: Generate interactive charts and graphs to explore data trends.
+        5. **Cumulative Metrics**: Visualize cumulative orderline metrics for deeper insights.
         """
         st. markdown(text)
 

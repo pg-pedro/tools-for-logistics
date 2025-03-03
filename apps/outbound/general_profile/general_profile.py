@@ -60,7 +60,18 @@ def page_intro():
     st.markdown('## General Outbound Overview')
     with st.expander('More Info'):
         text = """
-        Brief explanation here.
+        
+        Outbound overview is designed to help logistics engineers visualize and analyze outbound data. 
+        It provides a user-friendly interface to generate detailed reports, create interactive dashboards, and export processed data. 
+
+        **Key Features**:
+        1. **Orderline Analysis**: Visualize daily orderlines and analyze their distribution using percentiles.
+        2. **Outbound Statistics**: Display key metrics such as total orders, orderlines, and SKUs.
+        3. **Interactive Dashboards**: Create interactive charts and heatmaps to explore data trends.
+        4. **Percentile Removal**: Analyze the impact of removing orderlines below a certain percentile.
+        5. **Export Data**: Export the processed data for further analysis or sharing.
+        
+        By using this tool, you can ensure that your outbound data is well-structured and ready for analysis, helping you make informed decisions and optimize your logistics operations.
         """
         st. markdown(text)
 
