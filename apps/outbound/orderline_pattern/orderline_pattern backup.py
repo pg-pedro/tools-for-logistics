@@ -97,14 +97,9 @@ def whole_dataset_report(selected_cols: dict, **kwargs):
             # Concatenate cumulative sum table with original report
             qty_report_w_cs = pd.concat([qty_report, qty_cumsum_report], axis=1)
 
-            # Create dataframe divisor to compute percentages
-            ol_col = [total_ol for x in range(qty_report.shape[0])]
-            orders_col = [total_orders for x in range(qty_report.shape[0])]
-            data = np.matrix([ol_col, orders_col, ol_col, orders_col,]).transpose()
-            divide_df = pd.DataFrame(index=qty_report_w_cs.index, data=data, columns=qty_report_w_cs.columns)
-
-            # Compute percentages actual and cumulative
-            qty_report_percentage = np.round(qty_report_w_cs.divide(divide_df, axis=1) * 100, 2)
+            # Compute percentages actual and cumulative using broadcasting
+            divisor_series = pd.Series([total_ol, total_orders, total_ol, total_orders], index=qty_report_w_cs.columns)
+            qty_report_percentage = np.round(qty_report_w_cs.divide(divisor_series, axis=1) * 100, 2)
             ut.append_to_colname(qty_report_percentage, '_%')
 
             # Create final report

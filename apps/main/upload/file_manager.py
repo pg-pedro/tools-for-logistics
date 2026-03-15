@@ -138,7 +138,7 @@ def prepare_csv_file(file_name: str):
 
 def process_csv_file(file_name: str, _file):
     params = st.session_state[IMPORT_PARAMS].get(file_name)
-    df = pd.read_csv(_file, **params)
+    df = pd.read_csv(_file, engine='pyarrow', **params)
     save_dataframe_to_session_state(file_name, df)
     return df
 
@@ -172,10 +172,11 @@ def process_excel_file(file_name: str, _file):
     selected_sheets = st.session_state[IMPORT_PARAMS][file_name].get(SELECTED_SHEETS)
     params = st.session_state[IMPORT_PARAMS].get(file_name)
     # Parse loop
-    df = pd.DataFrame()
+    df_list = []
     for i, sheet_name in enumerate(selected_sheets, 1):
         with st.spinner(f'Reading {sheet_name}'):
             tmp_df = _file.parse(sheet_name, **params)
-            df = pd.concat([df, tmp_df], ignore_index=True)
+            df_list.append(tmp_df)
+    df = pd.concat(df_list, ignore_index=True) if df_list else pd.DataFrame()
     save_dataframe_to_session_state(file_name, df)
     return df

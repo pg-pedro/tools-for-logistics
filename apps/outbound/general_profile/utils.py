@@ -65,10 +65,8 @@ def pivot_on_datetime(dataframe: pd.DataFrame, selected_cols: dict, freq: str):
     return pt
 
 def add_dt_info(dataframe: pd.DataFrame):
-    days = [dt.strftime('%A') for dt in dataframe.index]
-    months = [dt.strftime('%b') for dt in dataframe.index]
-    dataframe[DAYS] = days
-    dataframe[MONTHS] = months    
+    dataframe[DAYS] = dataframe.index.strftime('%A')
+    dataframe[MONTHS] = dataframe.index.strftime('%b')
 
 def overall_outbound_stats(dataframe: pd.DataFrame, selected_cols: dict):
     stats = dict()
