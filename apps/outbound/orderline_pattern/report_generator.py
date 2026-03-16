@@ -72,13 +72,9 @@ def create_general_report(
     report_w_cs = pd.concat([report, cumsum_report], axis=1)
 
     ## Create dataframe divisor to compute percentages
-    first_col = [first_col_total for x in range(report.shape[0])]
-    second_col = [second_col_total for x in range(report.shape[0])]
-    data = np.matrix([first_col, second_col, first_col, second_col,]).transpose()
-    divisor_df = pd.DataFrame(index=report_w_cs.index, data=data, columns=report_w_cs.columns)
-
-    ## Compute percentages actual and cumulative
-    report_percentage = np.round(report_w_cs.divide(divisor_df, axis=1) * 100, 2)
+    ## Compute percentages actual and cumulative using broadcasting
+    divisor_series = pd.Series([first_col_total, second_col_total, first_col_total, second_col_total], index=report_w_cs.columns)
+    report_percentage = np.round(report_w_cs.divide(divisor_series, axis=1) * 100, 2)
     ut.append_to_colname(report_percentage, '_%')
 
     ## Create final report

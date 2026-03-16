@@ -95,8 +95,9 @@ def create_final_orderline_report(dataframe: pd.DataFrame):
     total_sku = pt.shape[0]
     total_picklines = pt[ORDERLINES].sum()
 
-    # Compute percentages
-    pt_final = pt_cumsum.divide([total_sku, total_picklines])
+    # Compute percentages using broadcasting
+    divisor_series = pd.Series([total_sku, total_picklines], index=[SKU_PER, ORDERLINES])
+    pt_final = pt_cumsum.divide(divisor_series, axis=1)
     pt_final = round(pt_final * 100, 2)
     return pt_final
 
@@ -129,8 +130,9 @@ def create_qty_report(dataframe: pd.DataFrame):
     total_sku = pt.shape[0]
     total_quantity = pt[QTY].sum()
 
-    # Compute percentages
-    pt_final = pt_cumsum.divide([total_sku, total_quantity])
+    # Compute percentages using broadcasting
+    divisor_series = pd.Series([total_sku, total_quantity], index=[SKU_PER, QTY])
+    pt_final = pt_cumsum.divide(divisor_series, axis=1)
     pt_final = round(pt_final * 100, 2)
     return pt_final
 
